@@ -133,15 +133,23 @@ function Signup() {
         return;
       }
       e.preventDefault()
+      
       fetch("/signup",{
         method:"post",
         headers:{
             "Content-Type":"application/json"
         },
         body:JSON.stringify({
-            name,
-            password,
+           
             email,
+            password,
+            name,
+            rollno,
+            dept,
+            tenth,
+            twelfth,
+            cgpa,
+            phone
         })
       })
       .then(res=>res.json())
@@ -164,19 +172,19 @@ function Signup() {
             <AppBar position="static">
             <Toolbar className={classes.toolbar}>
                 <Typography variant="h4" className={classes.title}>
-                Blogspot
+                PP
                 </Typography>
                 <div className={classes.buttons}>
-                {/*<Link to="/" className={classes.linkRouter} textDecor>*/}
+                <Link to="/login" className={classes.linkRouter} textDecor>
                     <Button variant="contained" className={classes.navButton}>
                         Login
                     </Button>
-                {/*</Link>*/}
-                {/*<Link to="/" className={classes.linkRouter}>*/}
+                </Link>
+                <Link to="/signup" className={classes.linkRouter}>
                     <Button variant="contained" className={classes.navButton}>
                         Signup
                     </Button>
-                {/*</Link>*/}
+                </Link>
                 </div>
             </Toolbar>
             </AppBar>

@@ -1,16 +1,16 @@
 const { Double, Integer } = require("mongodb")
 const { Schema, model } = require("mongoose")
-
-const Student = new Schema({
+const mongoose = require('mongoose')  
+const StudentSchema = new Schema({
   email:String,
   password:String,
   fullname:String,
   rollno:String,
   dept:String,
-  tenth: Integer,
-  twelfth: Integer,
-  CGPA: Double,
+  tenth: Number,
+  twelfth: Number,
+  CGPA: Number,
   phone: String
 })
 
-module.exports = model("Student", Student)
+module.exports = Student = mongoose.model("Student", StudentSchema)
