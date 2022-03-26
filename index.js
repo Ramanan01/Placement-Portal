@@ -91,3 +91,8 @@ app.post('/login',(req,res)=>{
     })
     .catch(err =>console.log(err))
 })
+
+app.post('/orglogin',(req,res)=>{
+    console.log('Organisation request login')
+    res.send({mess:"success"})
+})

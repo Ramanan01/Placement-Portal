@@ -5,13 +5,15 @@ import {Suspense,lazy} from 'react'
 import Signup from './components/Signup';
 import Login from './components/Login';
 import Home from './components/Home'
+import Organization from './components/Organization'
 
 function Routers(){
   return(
     <>
     <Routes>
       <Route path="/login" element={<Login/>}></Route>
-      <Route path="signup" element={<Signup/>}></Route>
+      <Route path="/signup" element={<Signup/>}></Route>
+      <Route path="/organization" element={<Organization/>}/>
       <Route path="/" element={<Home/>}/>
     </Routes>
     </>

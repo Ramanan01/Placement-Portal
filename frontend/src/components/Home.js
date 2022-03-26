@@ -10,7 +10,9 @@ const Home = () => {
             <button onClick={()=>{
                navigate('\login') 
             }}>Student</button>
-            <button>Organization</button>
+            <button onClick={()=>{
+              navigate('\organization')
+            }}>Organization</button>
         </div>
     </div>
   )
