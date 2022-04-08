@@ -96,3 +96,21 @@ app.post('/orglogin',(req,res)=>{
     console.log('Organisation request login')
     res.send({mess:"success"})
 })
+
+app.post("/profile",(req,res) =>{
+    console.log("yesss")
+    const email=req.body.email
+    console.log(email)
+    Student.findOne({email: email})
+    .then((savedstudent)=>{
+        if(savedstudent){
+            return res.json({profile:savedstudent})
+        }
+        else{
+            res.send({errMess:"success"})
+        }
+    })
+    
+    //Student.findOne({email:em})
+    //.then(details => res.json({details}))
+})

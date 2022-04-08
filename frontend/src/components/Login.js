@@ -158,7 +158,7 @@ function Login() {
           console.log('Logged In')
         localStorage.setItem("jwt",data.token)
         localStorage.setItem("user",JSON.stringify(data.user))
-        navigate('/')
+        navigate('/SDashboard')
       }
     })
   }

@@ -5,7 +5,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
-import {NavLink,useHistory,Link} from 'react-router-dom'
+import {NavLink,useNavigate,Link} from 'react-router-dom'
 
 const useStyles = makeStyles((theme) => ({
     toolbar:{
@@ -38,11 +38,11 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Navbar() {
 
-    const history = useHistory()
+    const navigate = useNavigate()
 
     const logout = () => {
         localStorage.clear()
-        history.push('/login')
+        navigate('/login')
     }
 
     const classes = useStyles()
@@ -53,7 +53,7 @@ export default function Navbar() {
               <div className={classes.Logo}>
                 <Link to="/" className={classes.navItems}>
                   <Typography variant="h4">
-                    Blogspot
+                    PP
                   </Typography>
                 </Link>
               </div>
@@ -64,12 +64,18 @@ export default function Navbar() {
               </NavLink>
               <NavLink exact to="/domain" activeClassName={classes.activeNav} className={classes.navItems}>
                 <Typography variant="h6" noWrap>
-                  Domains
+                  Applications
                 </Typography>
+              
               </NavLink>
               <NavLink exact to="/documents" activeClassName={classes.activeNav} className={classes.navItems}>
                 <Typography variant="h6" noWrap>
-                  Documents
+                  Registererd
+                </Typography>
+              </NavLink>
+              <NavLink exact to="/profile" activeClassName={classes.activeNav} className={classes.navItems}>
+                <Typography variant="h6" noWrap>
+                  Profile
                 </Typography>
               </NavLink>
             </div>
