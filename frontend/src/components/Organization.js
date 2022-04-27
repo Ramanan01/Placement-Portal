@@ -122,7 +122,7 @@ const CssTextField = withStyles({
 
 function Organization() {
   const [password,setPassword] = useState('')
-  const [userName,setUserName] = useState('')
+  const [cname,setCname] = useState('')
   const [showAlert, setShowAlert] = useState(false)
   const [error, setError] = useState('')
 
@@ -137,8 +137,8 @@ function Organization() {
           "Content-Type":"application/json"
       },
       body:JSON.stringify({
-          password,
-          userName,
+          cname,
+          password
       })
     })
     .then(res=>res.json())
@@ -149,10 +149,11 @@ function Organization() {
           setTimeout(()=>setShowAlert(false),2000);
       }
       else{
-          console.log('Logged In')
-        {/*localStorage.setItem("jwt",data.token)
-      localStorage.setItem("user",JSON.stringify(data.user))*/}
-        navigate('/')
+          console.log('Company Logged In')
+          console.log(data.company)
+          localStorage.setItem("jwt",data.token)
+          localStorage.setItem("company",JSON.stringify(data.company))
+          navigate('/')
       }
     })
   }
@@ -183,8 +184,8 @@ function Organization() {
                 {/* <InputLabel style={{color:'#35281E'}} htmlFor="my-email">Email address</InputLabel>
                 <Input className={classes.inputStyles} id="my-email" value={email} onChange={(e)=>setEmail(e.target.value)} aria-describedby="my-helper-text" /> */}
                   <CssTextField  
-                  id="username" label="Enter Username" type="text" 
-                  value={userName} onChange={(e)=>setUserName(e.target.value)}
+                  id="companyname" label="Enter Company Name" type="text" 
+                  value={cname} onChange={(e)=>setCname(e.target.value)}
                   aria-describedby="my-helper-text" />
               </FormControl>
               <FormControl className={classes.formElement}>

@@ -4,10 +4,13 @@ const app = express()
 const router = express.Router()
 const mongoose = require('mongoose')
 const Student = require('./models/Student')
+const Company = require('./models/Company')
 app.use(express.json())
 const PORT = 5000
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
+var MongoClient = require('mongodb').MongoClient;
+
 
 app.listen(PORT,()=>{
     console.log("Server is running",PORT);
@@ -94,7 +97,64 @@ app.post('/login',(req,res)=>{
 
 app.post('/orglogin',(req,res)=>{
     console.log('Organisation request login')
-    res.send({mess:"success"})
+    const {cname,password} = req.body
+    console.log(cname)
+    console.log(password)
+    if(!cname || !password){
+        res.statusCode = 422
+        return res.json({errMess:"All fields have not been filled"})
+    }
+    Company.findOne({companyName: cname})
+    .then((savedcompany)=>{
+        if(!savedcompany){
+            console.log("nooo")
+            res.statusCode = 422
+            return res.json({errMess: "Company does not exist"})
+        }
+        bcrypt.compare(password,savedcompany.password)
+        .then((match)=>{
+            if(match){
+                const token = jwt.sign({_id:savedcompany},'skayy')
+                const {_id,companyName,description} = savedcompany
+                res.json({token,company:{_id,companyName,description}})
+            }
+            else{
+                res.statusCode = 422
+                return res.json({errMess: "Incorrect Password"})
+            }
+        })
+        .catch(err =>console.log(err))
+
+    })
+    .catch(err =>console.log(err))
+})
+
+app.post("/orgsignup",(req,res) => {
+    console.log(req.body)
+    const { cname,
+            password,
+            description} = req.body
+    if(!cname|| !password || !description){
+        res.statusCode = 422
+        return res.json({errMess:"All fields have not been filled"})
+    }
+    bcrypt.hash(password,12)
+    .then((hashedpass) => {
+        Company.findOne({companyName: cname})
+        .then((savedcompany)=>{
+            if(savedcompany){
+                res.statusCode = 422
+                return res.json({errMess: "Company already exists"})
+            }
+            const company = new Company({
+                companyName: cname, password: hashedpass, description: description
+            })
+            company.save()
+            .then((sample)=> res.json("Company Created Successfully"))
+        })
+        .catch(err => console.log(err))
+    })
+    .catch(err => console.log(err))
 })
 
 app.post("/profile",(req,res) =>{
