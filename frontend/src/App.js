@@ -8,6 +8,8 @@ import Home from './components/Home'
 import Organization from './components/Organization'
 import SDashboard from './components/SDashboard'
 import Profile from './components/Profile'
+import NewForm from './components/NewForm'
+import Registerform from './components/Registerform'
 
 function Routers(){
   return(
@@ -18,6 +20,8 @@ function Routers(){
       <Route path="/organization" element={<Organization/>}/>
       <Route path="/sdashboard" element={<SDashboard/>}/>
       <Route path="/profile" element={<Profile/>}/>
+      <Route path="/newform" element={<NewForm/>}/>
+      <Route path="/registerform" element={<Registerform/>}/>
       <Route path="/" element={<Home/>}/>
     </Routes>
     </>

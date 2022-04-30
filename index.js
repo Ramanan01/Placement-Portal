@@ -9,6 +9,7 @@ app.use(express.json())
 const PORT = 5000
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
+const Registrations=require('./models/Registrations')
 var MongoClient = require('mongodb').MongoClient;
 
 
@@ -64,6 +65,34 @@ app.post("/signup",(req,res) => {
     .catch(err => console.log(err))
 })
 
+
+app.post("/newform",(req,res) => {
+    console.log("Received new form")
+    const { companyName,
+            role,
+            description,
+            minTenth,
+            minTwelfth,
+            minCGPA,
+            selectedDepts
+            } = req.body
+    if(!companyName || !role || !description || !minTenth || !minTwelfth || !minCGPA || !selectedDepts){
+        res.statusCode = 422
+        return res.json({errMess:"All fields have not been filled"})
+    }
+    const registration=new Registrations({
+        companyName: companyName,
+        minCGPA:minCGPA,
+        description: description,
+        role: role,
+        minTwelfth: minTwelfth,
+        minTenth: minTenth,
+        registeredStudents:[],
+        eligibleDept:selectedDepts
+    })
+    registration.save()
+    .then((sample)=> res.json("New Form Created Successfully"))
+})
 
 app.post('/login',(req,res)=>{
     console.log('Login Request received')
