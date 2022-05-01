@@ -10,6 +10,7 @@ import SDashboard from './components/SDashboard'
 import Profile from './components/Profile'
 import NewForm from './components/NewForm'
 import Registerform from './components/Registerform'
+import Applications from './components/Applications';
 
 function Routers(){
   return(
@@ -22,6 +23,7 @@ function Routers(){
       <Route path="/profile" element={<Profile/>}/>
       <Route path="/newform" element={<NewForm/>}/>
       <Route path="/registerform" element={<Registerform/>}/>
+      <Route path="/applications" element={<Applications/>}/>
       <Route path="/" element={<Home/>}/>
     </Routes>
     </>

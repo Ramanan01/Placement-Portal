@@ -1,4 +1,5 @@
 import React,{useState,useEffect} from 'react'
+import Navbar from './Navbar'
 
 const Profile = () => {
     const [student,setStudent]=useState('')
@@ -27,11 +28,14 @@ const Profile = () => {
     }
     return (
         <div>
+         
+          <main>
           <div><b>Profile</b></div>
           <div>
             <div>Name: {details.fullname}</div>
             <div>roll no: {details.rollno}</div>
           </div>
+          </main>
         </div>
         
     )

@@ -111,8 +111,8 @@ app.post('/login',(req,res)=>{
         .then((match)=>{
             if(match){
                 const token = jwt.sign({_id:saveduser},'skayy')
-                const {_id,fullname,email} = saveduser
-                res.json({token,user:{_id,fullname,email}})
+                const {_id,fullname,email,tenth,twelfth,CGPA,dept} = saveduser
+                res.json({token,user:{_id,fullname,email,tenth,twelfth,CGPA,dept}})
             }
             else{
                 res.statusCode = 422
@@ -202,4 +202,10 @@ app.post("/profile",(req,res) =>{
     
     //Student.findOne({email:em})
     //.then(details => res.json({details}))
+})
+
+app.get("/allapplications",(req,res)=>{
+    console.log("Applications List Request Received")
+    Registrations.find()
+    .then(applications=> res.json({applications}))
 })
