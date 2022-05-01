@@ -10,7 +10,8 @@ const StudentSchema = new Schema({
   tenth: Number,
   twelfth: Number,
   CGPA: Number,
-  phone: String
+  phone: String,
+  registeredApplications: [Schema.Types.ObjectId],
 })
 
 module.exports = Student = mongoose.model("Student", StudentSchema)

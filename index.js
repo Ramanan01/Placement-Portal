@@ -55,7 +55,7 @@ app.post("/signup",(req,res) => {
                 return res.json({errMess: "User already exists"})
             }
             const student = new Student({
-                email: email, password: hashedpass, fullname: name, rollno: rollno, dept: dept, tenth: tenth, twelfth: twelfth, CGPA: cgpa, phone: phone
+                email: email, password: hashedpass, fullname: name, rollno: rollno, dept: dept, tenth: tenth, twelfth: twelfth, CGPA: cgpa, phone: phone, registeredApplications: []
             })
             student.save()
             .then((sample)=> res.json("User Created Successfully"))
@@ -184,6 +184,29 @@ app.post("/orgsignup",(req,res) => {
         .catch(err => console.log(err))
     })
     .catch(err => console.log(err))
+})
+
+
+app.post("/userApplications",(req,res) =>{
+    console.log(req.body.id)
+    Student.findById(req.body.id)
+    .then(result => res.json({appliedCompanies: result}))
+})
+
+app.put("/apply",(req, res) =>{
+    const {companyId,id} = req.body
+    console.log(req.body)
+    Student.findByIdAndUpdate(id,{$push:{registeredApplications:companyId}},{new:true},(err,result)=>{
+        if(err){
+            return res.status(422).json({error:err})
+        }
+        Registrations.findByIdAndUpdate(companyId,{$push:{registeredStudents:id}},{new:true},(err,result)=>{
+            if(err){
+                return res.status(422).json({error:err})
+            }
+            console.log(result)
+        })
+    })
 })
 
 app.post("/profile",(req,res) =>{

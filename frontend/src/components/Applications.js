@@ -13,6 +13,8 @@ import {useNavigate,Link} from 'react-router-dom'
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Navbar from './Navbar';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
 
 const useStyles = makeStyles((theme) => ({
   media: {
@@ -90,11 +92,27 @@ const Applications = () => {
 
     
     const [applications,setApplications]=useState([])
+    const [userApplications,setUserApplications]=useState([])
 
     useEffect(() =>{
-
         fetchApplications() 
+        fetchUserApplications()
     },[])
+
+    const fetchUserApplications = async() => {
+        const user=JSON.parse(localStorage.getItem("user"))
+        const res = await fetch('/userApplications',{
+            method:'post',
+            headers: {
+              "Content-Type":"application/json",
+            },
+            body: JSON.stringify({
+                id: user._id
+            })
+          })
+          const data = await res.json()
+          setUserApplications(data.appliedCompanies.registeredApplications)
+    }
 
     const fetchApplications = async() => {
         const jwtToken = localStorage.getItem("jwt")
@@ -108,17 +126,31 @@ const Applications = () => {
         let finApplications=[]
         const allApplications=data.applications
         const user=JSON.parse(localStorage.getItem("user"))
-        console.log(allApplications)
-        console.log(user)
         allApplications.map(a=>{
             if(user.CGPA>=a.minCGPA && user.tenth>=a.minTenth && user.twelfth>=a.minTwelfth){
                 finApplications=[...finApplications, a]
             }
         })
-        console.log(finApplications)
         setApplications(finApplications)
-        console.log(data)
     }
+
+    async function applyCompany(a) {
+        setUserApplications([...userApplications,a._id])
+        const user=JSON.parse(localStorage.getItem("user"))
+        const jwtToken = localStorage.getItem("jwt")
+        const res = await fetch('/apply',{
+          method: 'put',
+          headers: {
+            "Content-Type":"application/json",
+          },
+          body:JSON.stringify({
+            companyId:a._id,
+            id:user._id
+          })
+        })
+      }
+
+
     if(applications.length===0){
         return(
           <div
@@ -139,16 +171,36 @@ const Applications = () => {
           {
             applications?.map(a=>( 
               <Grid item lg={4} md={6} xs={12} key={a.id}>
-                <Card style={{backgroundColor:"white"}}>
-                  <div className={classes.cardContent}>
-                    
-                      <Typography className={classes.cardHeading} variant="h5">
-                        {a.role}
-                      </Typography>
-                  </div>
-                  <Typography className={classes.cardDesc} variant="subtitle2">
+                <Card sx={{ minWidth: 275 }}>
+                <CardContent>
+                    <Typography variant="h5" component="div">
+                    {a.role}
+                    </Typography>
+                    <Typography sx={{ mb: 1.5 }} color="text.secondary">
                     {a.companyName}
-                  </Typography>
+                    </Typography>
+                    <Typography variant="body2">
+                    {a.description}
+                    </Typography>
+                </CardContent>
+                <CardActions>
+                {
+                    userApplications?.includes(a._id)?
+                    <>
+                      {console.log(a._id)}
+                    {/* <Link to ={`/domain/${d._id.toString()}`} style={{ textDecoration: 'none' }}>
+                    
+                    </Link> */}
+                    <Button className={classes.joinButtonInverse} disabled style={{color: "white"}}>
+                    <Typography variant="body1" noWrap style={{color: 'white'}}>Applied</Typography>
+                  </Button>
+                  </>
+                    :
+                    <Button onClick={()=>applyCompany(a)} className={classes.joinButton}>
+                      <Typography variant="body1" noWrap>Apply</Typography>
+                    </Button>
+                    }
+                </CardActions>
                 </Card>
               </Grid>
             ))
