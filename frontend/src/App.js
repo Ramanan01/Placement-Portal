@@ -11,6 +11,7 @@ import Profile from './components/Profile'
 import NewForm from './components/NewForm'
 import Registerform from './components/Registerform'
 import Applications from './components/Applications';
+import Registered from './components/Registered';
 
 function Routers(){
   return(
@@ -24,6 +25,7 @@ function Routers(){
       <Route path="/newform" element={<NewForm/>}/>
       <Route path="/registerform" element={<Registerform/>}/>
       <Route path="/applications" element={<Applications/>}/>
+      <Route path="/registered" element={<Registered/>}/>
       <Route path="/" element={<Home/>}/>
     </Routes>
     </>

@@ -68,7 +68,7 @@ export default function Navbar() {
                 </Typography>
               
               </NavLink>
-              <NavLink exact to="/" activeClassName={classes.activeNav} className={classes.navItems}>
+              <NavLink exact to="/registered" activeClassName={classes.activeNav} className={classes.navItems}>
                 <Typography variant="h6" noWrap>
                   Registererd
                 </Typography>

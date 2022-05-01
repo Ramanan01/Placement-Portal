@@ -227,6 +227,23 @@ app.post("/profile",(req,res) =>{
     //.then(details => res.json({details}))
 })
 
+app.post("/registered",(req,res)=>{
+    const id=req.body.id
+    Student.findOne({_id: id})
+    .then((savedstudent)=>{
+        if(savedstudent){
+            Registrations.find( { _id : { $in : savedstudent.registeredApplications } } )
+            .then((registrations)=>{
+                res.send({registrations:registrations})
+            });
+        }
+        else{
+            res.send({errMess:"Student not found"})
+        }
+    })
+
+})
+
 app.get("/allapplications",(req,res)=>{
     console.log("Applications List Request Received")
     Registrations.find()
