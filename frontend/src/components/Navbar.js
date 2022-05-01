@@ -42,7 +42,7 @@ export default function Navbar() {
 
     const logout = () => {
         localStorage.clear()
-        navigate('/login')
+        navigate('/')
     }
 
     const classes = useStyles()
@@ -52,7 +52,7 @@ export default function Navbar() {
             <div className={classes.partNav}>
               <div className={classes.Logo}>
                 <Link to="/" className={classes.navItems}>
-                  <Typography variant="h4">
+                  <Typography variant="h6">
                     PP
                   </Typography>
                 </Link>
@@ -62,13 +62,13 @@ export default function Navbar() {
                   Home
                 </Typography>
               </NavLink>
-              <NavLink exact to="/domain" activeClassName={classes.activeNav} className={classes.navItems}>
+              <NavLink exact to="/applications" activeClassName={classes.activeNav} className={classes.navItems}>
                 <Typography variant="h6" noWrap>
                   Applications
                 </Typography>
               
               </NavLink>
-              <NavLink exact to="/documents" activeClassName={classes.activeNav} className={classes.navItems}>
+              <NavLink exact to="/" activeClassName={classes.activeNav} className={classes.navItems}>
                 <Typography variant="h6" noWrap>
                   Registererd
                 </Typography>
