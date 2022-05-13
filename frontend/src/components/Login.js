@@ -16,7 +16,7 @@ import {useNavigate} from 'react-router-dom'
 // import MenuIcon from '@material-ui/icons/Menu';
 
 const bgUrl = {
-  background: `url(https://images.unsplash.com/photo-1432821596592-e2c18b78144f?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YmxvZyUyMGJhY2tncm91bmR8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80)`,
+  background: `url(https://ceg.annauniv.edu/assets/images/doingresearch.jpg)`,
   height: "100vh",
   backgroundPosition: "center",
   backgroundRepeat: "no-repeat",
@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
     height: "80%",
   },
   toolbar: {
-    backgroundColor: "#35281E",
+    backgroundColor: "#030302",
   },
   linkRouter:{
     textDecoration: 'none',
@@ -136,7 +136,7 @@ function Login() {
       return;
     }
     e.preventDefault()
-    console.log('About to send credntials')
+    console.log('About to send credentials')
     fetch("/login",{
       method:"post",
       headers:{
@@ -168,7 +168,7 @@ function Login() {
         <AppBar position="static">
           <Toolbar className={classes.toolbar}>
             <Typography variant="h4" className={classes.title}>
-              PP
+              PLACEMENT PORTAL
             </Typography>
             <div className={classes.buttons}>
               <Link to="/login" className={classes.linkRouter}>
