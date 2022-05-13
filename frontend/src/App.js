@@ -8,10 +8,12 @@ import Home from './components/Home'
 import Organization from './components/Organization'
 import SDashboard from './components/SDashboard'
 import Profile from './components/Profile'
-import NewForm from './components/NewForm'
 import Registerform from './components/Registerform'
 import Applications from './components/Applications';
 import Registered from './components/Registered';
+import ODashboard from './components/ODashboard';
+import Orgforms from './components/Orgforms';
+import FormDetails from './components/FormDetails'
 
 function Routers(){
   return(
@@ -22,10 +24,12 @@ function Routers(){
       <Route path="/organization" element={<Organization/>}/>
       <Route path="/sdashboard" element={<SDashboard/>}/>
       <Route path="/profile" element={<Profile/>}/>
-      <Route path="/newform" element={<NewForm/>}/>
       <Route path="/registerform" element={<Registerform/>}/>
       <Route path="/applications" element={<Applications/>}/>
       <Route path="/registered" element={<Registered/>}/>
+      <Route path="/orgdashboard" element={<ODashboard/>}/>
+      <Route path="/orgforms" element={<Orgforms/>}/>
+      <Route path="/orgforms/:formid" element={<FormDetails/>}/>
       <Route path="/" element={<Home/>}/>
     </Routes>
     </>

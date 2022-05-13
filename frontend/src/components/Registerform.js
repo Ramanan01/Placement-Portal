@@ -1,4 +1,5 @@
 import React,{useState} from 'react'
+import Navbarorg from './Navbarorg'
 
 function Registerform() {
 
@@ -58,6 +59,13 @@ function Registerform() {
   };
 
   return (
+    <div>
+      <Navbarorg></Navbarorg>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
       <div className="bg-black h-max w-screen">
         <div className="flex justify-center items-center h-full w-full">
           <div className="flex-1 px-16">
@@ -119,6 +127,7 @@ function Registerform() {
             </div>
           </div>
         </div>
+      </div>
       </div>
   )
 }

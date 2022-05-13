@@ -153,7 +153,7 @@ function Organization() {
           console.log(data.company)
           localStorage.setItem("jwt",data.token)
           localStorage.setItem("company",JSON.stringify(data.company))
-          navigate('/')
+          navigate('/orgdashboard')
       }
     })
   }

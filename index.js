@@ -249,3 +249,31 @@ app.get("/allapplications",(req,res)=>{
     Registrations.find()
     .then(applications=> res.json({applications}))
 })
+
+app.post("/orgforms",(req,res) =>{
+    const companyName=req.body.companyName
+    Registrations.find({companyName: companyName})
+    .then((forms)=>{
+       return res.json({forms:forms})
+    })
+    
+    //Student.findOne({email:em})
+    //.then(details => res.json({details}))
+})
+
+app.post("/registeredlist",(req,res)=>{
+    const formid=req.body.formid
+    Registrations.findOne({_id: formid})
+    .then((savedform)=>{
+        if(savedform){
+            Student.find( { _id : { $in : savedform.registeredStudents } } )
+            .then((list)=>{
+                res.send({list:list})
+            });
+        }
+        else{
+            res.send({errMess:"Form not found"})
+        }
+    })
+
+})
