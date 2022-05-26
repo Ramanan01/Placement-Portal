@@ -18,15 +18,14 @@ import { MenuItem } from '@material-ui/core';
 import { Select } from '@material-ui/core';
 
 const bgUrl = {
-  background: `url(https://upload.wikimedia.org/wikipedia/commons/8/8d/College_of_Engineering_Guindy_campus.JPG)`,
-  height: "100vh",
-  backgroundPosition: "center",
+  background: `url(https://ceg.annauniv.edu/assets/images/doingresearch.jpg)`,
   backgroundRepeat: "no-repeat",
-  
-  objectFit: "cover"
-  // opacity: 0.8,
+  backgroundSize: "cover",
+  objectfit: "fill"
 };
-
+ const drop={
+    width:"10vh"
+ };
 const useStyles = makeStyles((theme)=>({
     cardContent:{
       display: 'flex',
@@ -39,20 +38,22 @@ const useStyles = makeStyles((theme)=>({
         textDecoration: 'none',
     },
     toolbar:{
-      backgroundColor:"#35281E"
+      backgroundColor: "#8FBAC8"
     },
     navButton:{
-      backgroundColor:"#cc7722",
-      color: 'white',
+      backgroundColor: "black",
+      color: "white",
       "&:hover": {
-        backgroundColor: "#b7410e",
+        backgroundColor: "#f0827a",
       },
     },
     card:{
       width:'25%',
       borderRadius: '15px',
       background:'linear-gradient(145deg, #ffffff, #e6e6e6)',
-      boxShadow:'2px 2px 4px #b48648'
+      //opacity:0.7,
+      boxShadow:'2px 2px 4px #b48648',
+
     },
     cardContainer:{
       display:'flex',
@@ -64,10 +65,10 @@ const useStyles = makeStyles((theme)=>({
       width:'75%'
     },
     formButton:{
-      margin:'15px',
-      backgroundColor:"#cc7722",
+      margin: "15px",
+      backgroundColor: "black",
       "&:hover": {
-        backgroundColor: "#b7410e",
+        backgroundColor: "#f0827a",
       },
     },
     bullet: {
@@ -79,7 +80,9 @@ const useStyles = makeStyles((theme)=>({
       marginBottom: 12,
     },
     title: {
-        flexGrow: 1,
+      flexGrow: 1,
+      color:"black",
+      textAlign:'left'
     },
     buttons:{
         display: 'flex',
@@ -172,17 +175,17 @@ function Signup() {
             <AppBar position="static">
             <Toolbar className={classes.toolbar}>
                 <Typography variant="h4" className={classes.title}>
-                PP
+                STUDENT PORTAL
                 </Typography>
                 <div className={classes.buttons}>
                 <Link to="/login" className={classes.linkRouter} textDecor>
                     <Button variant="contained" className={classes.navButton}>
-                        Login
+                        LOGIN
                     </Button>
                 </Link>
                 <Link to="/signup" className={classes.linkRouter}>
                     <Button variant="contained" className={classes.navButton}>
-                        Signup
+                        SIGNUP
                     </Button>
                 </Link>
                 </div>
@@ -206,7 +209,7 @@ function Signup() {
             <Card className={classes.card}>
                 <CardContent className={classes.cardContent}>
                 <Typography variant="caption" className={classes.heading}>
-                    Sign Up
+                    SIGN UP
                 </Typography>
                
                 <FormControl className={classes.formElement}>
@@ -230,7 +233,7 @@ function Signup() {
                 </FormControl>
                 <FormControl variant="standard">
                   <InputLabel>Dept</InputLabel>
-                  <Select
+                  <Select style={drop}
       
                     value={dept}
                     onChange={(e)=>{

@@ -21,7 +21,7 @@ const bgUrl = {
   backgroundPosition: "center",
   backgroundRepeat: "no-repeat",
   backgroundSize: "cover",
-  // opacity: 0.8,
+ 
 };
 
 const useStyles = makeStyles((theme) => ({
@@ -33,17 +33,17 @@ const useStyles = makeStyles((theme) => ({
     height: "80%",
   },
   toolbar: {
-    backgroundColor: "#030302",
+    backgroundColor: "#8FBAC8",
   },
   linkRouter:{
     textDecoration: 'none',
   },
   navButton: {
-    backgroundColor: "#cc7722",
-    color: "white",
-    "&:hover": {
-      backgroundColor: "#b7410e",
-    },
+    backgroundColor: "black",
+      color: "white",
+      "&:hover": {
+        backgroundColor: "#f0827a",
+      },
   },
   card: {
     width: "25%",
@@ -65,9 +65,9 @@ const useStyles = makeStyles((theme) => ({
   },
   formButton: {
     margin: "15px",
-    backgroundColor: "#cc7722",
+    backgroundColor: "black",
     "&:hover": {
-      backgroundColor: "#b7410e",
+      backgroundColor: "#f0827a",
     },
   },
   bullet: {
@@ -80,6 +80,8 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
+    color:"black",
+    textAlign:'left'
   },
   buttons: {
     display: "flex",
@@ -168,17 +170,17 @@ function Login() {
         <AppBar position="static">
           <Toolbar className={classes.toolbar}>
             <Typography variant="h4" className={classes.title}>
-              PLACEMENT PORTAL
+              STUDENT PORTAL
             </Typography>
             <div className={classes.buttons}>
               <Link to="/login" className={classes.linkRouter}>
                 <Button variant="contained" className={classes.navButton}>
-                  Login
+                  LOGIN
                 </Button>
               </Link>
               <Link to="/signup" className={classes.linkRouter}>
                 <Button variant="contained" className={classes.navButton}>
-                  Signup
+                  SIGNUP
                 </Button>
               </Link>
             </div>
@@ -195,7 +197,7 @@ function Login() {
           <Card className={classes.card}>
             <CardContent className={classes.cardContent}>
               <Typography variant="caption" className={classes.heading}>
-                Login
+                LOGIN
               </Typography>
               <FormControl className={classes.formElement}>
                 {/* <InputLabel style={{color:'#35281E'}} htmlFor="my-email">Email address</InputLabel>
