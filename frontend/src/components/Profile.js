@@ -104,6 +104,11 @@ const Profile = () => {
     return (
         <div>
          <Navbar/>
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+         
           <main>
           <Typography>Profile</Typography>
             <Typography>Name: {details.fullname}</Typography>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import { useNavigate } from 'react-router-dom'
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -15,6 +15,9 @@ import { createTheme, ThemeProvider } from '@material-ui/core/styles';
 
 const theme = createTheme();
 const Home = () => {
+  useEffect(() =>{
+    localStorage.clear()
+},[])
     const navigate = useNavigate()
   return (
     <ThemeProvider theme={theme}>

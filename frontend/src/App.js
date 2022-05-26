@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import {BrowserRouter, Route,Routes, Navigate} from 'react-router-dom'
+import {BrowserRouter, Route,Routes, useNavigate,useLocation} from 'react-router-dom'
 import {Suspense,lazy} from 'react'
 import Signup from './components/Signup';
 import Login from './components/Login';
@@ -16,6 +16,22 @@ import Orgforms from './components/Orgforms';
 import FormDetails from './components/FormDetails'
 
 function Routers(){
+  const navigate = useNavigate()
+  const location=useLocation()
+  const user = JSON.parse(localStorage.getItem("user"))
+  const company=JSON.parse(localStorage.getItem("company"))
+  if(user){
+    console.log(user)
+    if(location.pathname.startsWith('/login') ){
+      navigate('/login')
+    }
+    else if(location.pathname.startsWith('/signup')){
+      navigate('/signup')
+    }
+  }
+  else{
+    history.push('/login')
+  }
   return(
     <>
     <Routes>
