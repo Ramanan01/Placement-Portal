@@ -89,6 +89,13 @@ const Orgforms = () => {
     const classes = useStyles();
     const navigate = useNavigate()
     const [forms,setForms]=useState([])
+
+    useEffect(() =>{
+      const company=localStorage.getItem("company")
+      if(!company){
+        navigate('/')
+      }
+    },[])
     useEffect(() =>{
         fetchForms() 
     },[])

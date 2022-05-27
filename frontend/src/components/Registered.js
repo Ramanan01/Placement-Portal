@@ -16,6 +16,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 
 
+
 const useStyles = makeStyles((theme) => ({
     media: {
       height: 180,
@@ -85,13 +86,22 @@ const useStyles = makeStyles((theme) => ({
       alignItems: 'center',
     },
   }));
-
+  
 const Registered = () => {
+  const navigate=useNavigate()
+
     const classes= useStyles()
     const [registered,setRegistered]=useState([])
     useEffect(() =>{
         fetchRegistered()
     },[])
+
+    useEffect(() => {
+      const user = JSON.parse(localStorage.getItem("user"))
+      if(!user){
+        navigate('/')
+      }
+    })
 
     const fetchRegistered = async() => {
         const user=JSON.parse(localStorage.getItem("user"))

@@ -2,6 +2,7 @@ import React,{useState,useEffect} from 'react'
 import Navbar from './Navbar'
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import {useNavigate} from 'react-router-dom'
 
 const useStyles = makeStyles((theme) => ({
   media: {
@@ -74,12 +75,19 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Profile = () => {
+  const navigate=useNavigate()
   const classes=useStyles()
     const [student,setStudent]=useState('')
     const [details,setDetails]=useState('')
     useEffect(() =>{
         getProfile()
     }, [])
+    useEffect(() => {
+      const user = JSON.parse(localStorage.getItem("user"))
+      if(!user){
+        navigate('/')
+      }
+    })
     async function getProfile(){
         const jwtToken = localStorage.getItem("jwt")
         const user = JSON.parse(localStorage.getItem('user'))

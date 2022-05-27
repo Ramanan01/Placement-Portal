@@ -94,6 +94,13 @@ const Applications = () => {
     const [applications,setApplications]=useState([])
     const [userApplications,setUserApplications]=useState([])
 
+    useEffect(() => {
+      const user = JSON.parse(localStorage.getItem("user"))
+      if(!user){
+        navigate('/')
+      }
+    })
+
     useEffect(() =>{
         fetchApplications() 
         fetchUserApplications()

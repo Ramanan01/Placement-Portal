@@ -8,7 +8,14 @@ import {Grid} from '@material-ui/core';
 
 const Home = () => {
   useEffect(() =>{
-    localStorage.clear()
+    const user = JSON.parse(localStorage.getItem("user"))
+    const company=JSON.parse(localStorage.getItem("company"))
+    if(user){
+      navigate('/sdashboard')
+    }
+    if(company){
+      navigate('/orgdashboard')
+    }
 },[])
     const navigate = useNavigate()
     const myStyle = {

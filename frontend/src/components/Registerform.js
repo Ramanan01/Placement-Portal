@@ -1,8 +1,9 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import Navbarorg from './Navbarorg'
+import {useNavigate} from 'react-router-dom'
 
 function Registerform() {
-
+  const navigate =useNavigate()
   const [role,setRole] = useState('')
   const [description,setDescription] = useState('')
   const [minCGPA,setMinCGPA] = useState(0)
@@ -12,7 +13,12 @@ function Registerform() {
     new Array(4).fill(false)
   );
   const [selectedDepts,setSelectedDepts] = useState([])
-
+  useEffect(() => {
+    const company = JSON.parse(localStorage.getItem("company"))
+    if(!company){
+      navigate('/')
+    }
+  })
   const depts = [
     { value: 'IT',key:0 },
     { value: 'CSE',key:1 },
