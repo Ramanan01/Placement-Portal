@@ -18,82 +18,100 @@ import { MenuItem } from '@material-ui/core';
 import { Select } from '@material-ui/core';
 
 const bgUrl = {
-  background: `url(https://ceg.annauniv.edu/assets/images/doingresearch.jpg)`,
-  backgroundRepeat: "no-repeat",
-  backgroundSize: "cover",
-  objectfit: "fill"
+  background: `url(https://i.pinimg.com/736x/35/1a/e7/351ae7b78bb793c6462884e947df51b2.jpg)`,
+  height: "100vh",
+  backgroundAttachment: 'local'
+ 
 };
+
  const drop={
     width:"10vh"
  };
-const useStyles = makeStyles((theme)=>({
-    cardContent:{
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      // width: '40%',
-      height: '80%'
-    },
-    linkRouter: {
-        textDecoration: 'none',
-    },
-    toolbar:{
-      backgroundColor: "#8FBAC8"
-    },
-    navButton:{
-      backgroundColor: "black",
-      color: "white",
+ const useStyles = makeStyles((theme) => ({
+  cardContent: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    // width: '40%',
+    height: "80%",
+  },
+  toolbar: {
+    backgroundColor: "black",
+  },
+  linkRouter:{
+    textDecoration: 'none',
+  },
+  navButton: {
+    backgroundColor: "Turquoise",
+      color: "black",
       "&:hover": {
-        backgroundColor: "#f0827a",
+        backgroundColor: "#20B2AA",
       },
+  },
+  card: {
+    width: "25%",
+    borderRadius: "15px",
+    background: "linear-gradient(145deg, #ffffff, #e6e6e6)",
+    boxShadow: "2px 2px 4px #b48648",
+  },
+  cardContainer: {
+    display: "flex",
+    justifyContent: "center",
+    marginTop: "12%",
+  },
+  formElement: {
+    margin: "10px",
+    width: "75%",
+    // "&:focus": {
+    //   color: "#b7410e",
+    // },
+  },
+  formButton: {
+    margin: "15px",
+    backgroundColor: "black",
+    "&:hover": {
+      backgroundColor: "#20B2AA",
     },
-    card:{
-      width:'25%',
-      borderRadius: '15px',
-      background:'linear-gradient(145deg, #ffffff, #e6e6e6)',
-      //opacity:0.7,
-      boxShadow:'2px 2px 4px #b48648',
-
+  },
+  bullet: {
+    display: "inline-block",
+    margin: "0 2px",
+    transform: "scale(0.8)",
+  },
+  pos: {
+    marginBottom: 12,
+  },
+  title: {
+    flexGrow: 1,
+    textAlign:'left',
+    fontFamily:'Fira Sans Condensed',
+    color:'#FFFFF0'
+  },
+  buttons: {
+    display: "flex",
+    justifyContent: "space-between",
+    minWidth: "12vw",
+  },
+  heading:{
+    fontSize:'2rem',
+    fontWeight:'bold',
+    fontFamily: 'Fira Sans Condensed'
+  },
+  inputStyles: {
+    color:'black',
+    "&:after":{
+      borderColor:'#35281E',
     },
-    cardContainer:{
-      display:'flex',
-      justifyContent: 'center',
-      marginTop: '12%',
+    "&:before":{
+      borderColor:'#35281E',
     },
-    formElement: {
-      margin:'10px',
-      width:'75%'
+  },
+  inputLabel: {
+    "&:after":{
+      color:'#35281E',
     },
-    formButton:{
-      margin: "15px",
-      backgroundColor: "black",
-      "&:hover": {
-        backgroundColor: "#f0827a",
-      },
-    },
-    bullet: {
-      display: 'inline-block',
-      margin: '0 2px',
-      transform: 'scale(0.8)',
-    },
-    pos: {
-      marginBottom: 12,
-    },
-    title: {
-      flexGrow: 1,
-      color:"black",
-      textAlign:'left'
-    },
-    buttons:{
-        display: 'flex',
-        justifyContent: 'space-between',
-        minWidth:'12vw'
-    },
-    heading:{
-      fontSize:'2rem',
-      fontWeight:'bold',
-    },
-  }))
+  }
+}));
 
 const CssTextField = withStyles({
   root: {
@@ -175,7 +193,7 @@ function Signup() {
             <AppBar position="static">
             <Toolbar className={classes.toolbar}>
                 <Typography variant="h4" className={classes.title}>
-                STUDENT PORTAL
+                AU Placements
                 </Typography>
                 <div className={classes.buttons}>
                 <Link to="/login" className={classes.linkRouter} textDecor>

@@ -16,11 +16,8 @@ import {useNavigate} from 'react-router-dom'
 // import MenuIcon from '@material-ui/icons/Menu';
 
 const bgUrl = {
-  background: `url(https://ceg.annauniv.edu/assets/images/doingresearch.jpg)`,
+  background: `url(https://i.pinimg.com/736x/35/1a/e7/351ae7b78bb793c6462884e947df51b2.jpg)`,
   height: "100vh",
-  backgroundPosition: "center",
-  backgroundRepeat: "no-repeat",
-  backgroundSize: "cover",
  
 };
 
@@ -33,16 +30,16 @@ const useStyles = makeStyles((theme) => ({
     height: "80%",
   },
   toolbar: {
-    backgroundColor: "#8FBAC8",
+    backgroundColor: "black",
   },
   linkRouter:{
     textDecoration: 'none',
   },
   navButton: {
-    backgroundColor: "black",
-      color: "white",
+    backgroundColor: "Turquoise",
+      color: "black",
       "&:hover": {
-        backgroundColor: "#f0827a",
+        backgroundColor: "#20B2AA",
       },
   },
   card: {
@@ -67,7 +64,7 @@ const useStyles = makeStyles((theme) => ({
     margin: "15px",
     backgroundColor: "black",
     "&:hover": {
-      backgroundColor: "#f0827a",
+      backgroundColor: "#20B2AA",
     },
   },
   bullet: {
@@ -80,8 +77,9 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
-    color:"black",
-    textAlign:'left'
+    textAlign:'left',
+    fontFamily:'Fira Sans Condensed',
+    color:'#FFFFF0'
   },
   buttons: {
     display: "flex",
@@ -91,6 +89,7 @@ const useStyles = makeStyles((theme) => ({
   heading:{
     fontSize:'2rem',
     fontWeight:'bold',
+    fontFamily: 'Fira Sans Condensed'
   },
   inputStyles: {
     color:'black',
@@ -170,7 +169,7 @@ function Login() {
         <AppBar position="static">
           <Toolbar className={classes.toolbar}>
             <Typography variant="h4" className={classes.title}>
-              STUDENT PORTAL
+              AU Placements
             </Typography>
             <div className={classes.buttons}>
               <Link to="/login" className={classes.linkRouter}>

@@ -13,18 +13,20 @@ const Home = () => {
     const navigate = useNavigate()
     const myStyle = {
       color: "black",
-      backgroundColor: "#8FBAC8",
+      backgroundColor: "#40E0D0",
       padding: "10px",
       fontFamily: "Times New Roman"
     };
     const headerstyle={
+      fontFamily: 'Fira Sans Condensed', 
       textAlign:'center',
+      backgroundColor: 'black',
+      color:'#FFFFF0',
       fontweight: 600,
-      fontFamily: "Times New Roman",
       border: '1px double black',
       borderstyle:'double',
-      fontSize: 40,
-      padding: 5,
+      fontSize: 50,
+      padding: 15,
       borderradius: 20
      };
      const capstyle={
@@ -36,16 +38,32 @@ const Home = () => {
      const griditem={
         padding:20
      };
+     const subheader={
+       
+      color:"black",
+      fontFamily:"Fira Sans Extra Condensed",
+      fontSize:"30px",
+      padding:5,
+      padding: 12,
+   };
      const para={
-        color:"black",
-        fontFamily:"Times New Roman",
-        fontsize:"20px",
+      color:"black",
+      backgroundColor:'#FFFFF0',
+        fontFamily:"Fira Sans Extra Condensed",
+        fontSize:"20px",
         padding:5,
-        border: '2px solid black',
-        borderradius: '40px',
         padding: 12,
-        borderCollapse: 'collapsed'
+        fontWeight: 50
      };
+     const firstpara={
+      color:"black",
+      backgroundColor:'#FFFFF0',
+      fontFamily:"Fira Sans Extra Condensed",
+      fontSize:"20px",
+      padding:5,
+      padding: 12,
+      fontWeight: 50
+   };
      const buttonstyle={
       backgroundColor:'#f44336',
       fontsize:"24px"
@@ -68,10 +86,12 @@ const Home = () => {
   return (
     <div style={myStyle}>
        <div>
-        <b style={headerstyle}>PORTAL FOR PLACEMENTS</b></div>
+         <br></br>
+         <br></br>
+        <b style={headerstyle}>AU Placement Portal</b></div>
         <br></br>
-        <h2>Welcome to On-Campus Placements of College of Engineering Guindy</h2>
-        <p style={para}>
+        <h2 style={subheader}>Welcome to On-Campus Placements of College of Engineering Guindy</h2>
+        <p style={firstpara}>
         Contributing to the educational, economic and social development by
         producing students who are intellectually and technically equipped with well-defined knowledge,
         skills and ethics who are creative thinkers, inspiring leaders and contributing citizens.
