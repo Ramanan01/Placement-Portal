@@ -11,9 +11,11 @@ import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import {useNavigate,Link} from 'react-router-dom'
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import Navbar from './Navbar';
+import Template from './Template';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
+import Navbarorg from './Navbarorg';
+import OrgTemplate from './OrgTemplate';
 
 const useStyles = makeStyles((theme) => ({
   media: {
@@ -29,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
     paddingTop:theme.spacing(10),
     paddingBottom: theme.spacing(7),
-    backgroundColor: '#F9E4B7',
+    backgroundColor: '#FFC0CB',
     minHeight:'100vh'
   },
   cardContent:{
@@ -84,7 +86,18 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
   },
 }));
-
+const headerstyle={
+  fontFamily: 'Fira Sans Condensed', 
+  textAlign:'center',
+  backgroundColor: 'black',
+  color:'#FFFFF0',
+  fontweight: 400,
+  border: '1px black',
+  borderstyle:'solid',
+  fontSize: 50,
+  padding: 15,
+  borderradius: 20
+ };
 const Orgforms = () => {
     const classes = useStyles();
     const navigate = useNavigate()
@@ -115,7 +128,7 @@ const Orgforms = () => {
           setForms(data.forms)
     }
 
-
+    localStorage.setItem("org",forms.companyName)
     if(forms.length===0){
         return(
           <div
@@ -127,28 +140,30 @@ const Orgforms = () => {
       }
   return (
     <div>
-        <Navbar/>    
+        <OrgTemplate/>  
+        
       {<main className={classes.content}>
-        <Typography className={classes.heading} variant="h5">
-           My forms
-        </Typography>
+        <div>
+      <b style={headerstyle}>MY FORMS</b></div>
+        <br/>
+        <br/>
         <Grid container spacing={4}>
           {
             forms?.map(a=>( 
               <Grid item lg={4} md={6} xs={12} key={a.id}>
-                <Card sx={{ minWidth: 275 }}>
-                <CardContent>
+                <Card style={{color:'black'}} sx={{ minWidth: 275 }}>
+                <CardContent style={{backgroundColor:'turquoise'}}>
                 <Link to ={`/orgforms/${a._id.toString()}`} style={{ textDecoration: 'none', color: 'black'}}>
                     
-                    <Typography variant="h5" component="div">
+                    <Typography variant="h4" component="div">
                     {a.role}
                     </Typography>
                     </Link>
 
-                    <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                    <Typography sx={{ mb: 2.5 }} color="text.secondary">
                     {a.companyName}
                     </Typography>
-                    <Typography variant="body2">
+                    <Typography variant="h6">
                     {a.description}
                     </Typography>
                 </CardContent>

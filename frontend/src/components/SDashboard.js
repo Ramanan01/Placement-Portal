@@ -13,7 +13,9 @@ const SDashboard = () => {
   return (
     <div>
         <Navbar/>
+        
     </div>
+    
   )
 }
 

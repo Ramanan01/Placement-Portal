@@ -10,11 +10,13 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import {useNavigate} from 'react-router-dom'
+import OrgTemplate from './OrgTemplate';
 
 const FormDetails = ({match}) => {
     const navigate=useNavigate()
     const {formid}=useParams()
     const [rows,setRows]=useState([])
+    const [blank,setBlank]=useState(false)
     useEffect(() =>{
         fetchRegistredList()
         
@@ -37,8 +39,16 @@ const FormDetails = ({match}) => {
             })
           })
           const data=await res.json();
+          if((data.list).length===0)
+          {
+            setBlank(true)
+          }
           setRows(data.list)
           console.log(data.list)
+    }
+    if(blank==true)
+    {
+      navigate('/NoForm')
     }
     if(rows.length===0){
         return(
@@ -51,7 +61,7 @@ const FormDetails = ({match}) => {
       }
   return (
     <div>
-        <Navbarorg></Navbarorg>
+        <OrgTemplate></OrgTemplate>
         <br/>
         <br/>
         <br/>

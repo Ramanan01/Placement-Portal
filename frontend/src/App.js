@@ -13,8 +13,10 @@ import Applications from './components/Applications';
 import Registered from './components/Registered';
 import ODashboard from './components/ODashboard';
 import Orgforms from './components/Orgforms';
-import FormDetails from './components/FormDetails'
-
+import FormDetails from './components/FormDetails';
+import NoApp from './components/NoApp';
+import NoReg from './components/NoReg';
+import Noforms from './components/Noforms';
 function Routers(){
   const navigate = useNavigate()
   const location=useLocation()
@@ -35,6 +37,9 @@ function Routers(){
       <Route path="/orgdashboard" element={<ODashboard/>}/>
       <Route path="/orgforms" element={<Orgforms/>}/>
       <Route path="/orgforms/:formid" element={<FormDetails/>}/>
+      <Route path="/NoApp" element={<NoApp/>}/>
+      <Route path="/NoReg" element={<NoReg/>}/>
+      <Route path="/NoForm" element={<Noforms/>}/>
       <Route path="/" element={<Home/>}/>
     </Routes>
     </>

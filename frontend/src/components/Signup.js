@@ -19,8 +19,10 @@ import { Select } from '@material-ui/core';
 
 const bgUrl = {
   background: `url(https://i.pinimg.com/736x/35/1a/e7/351ae7b78bb793c6462884e947df51b2.jpg)`,
-  height: "100vh",
-  backgroundAttachment: 'local'
+  height: "200vh",
+  backgroundAttachment: 'local',
+  backgroundSize: 'cover',
+  backgroundRepeat: 'no-repeat'
  
 };
 

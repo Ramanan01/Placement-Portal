@@ -11,7 +11,7 @@ import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import {useNavigate,Link} from 'react-router-dom'
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import Navbar from './Navbar';
+import Template from './Template';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 
@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
       },
     },
     joinButtonInverse:{
-      backgroundColor:'#b7410e',
+      backgroundColor:'black',
       color:"white",
       margin: theme.spacing(2),
       "&:hover": {
@@ -86,12 +86,24 @@ const useStyles = makeStyles((theme) => ({
       alignItems: 'center',
     },
   }));
-  
+  const headerstyle={
+    fontFamily: 'Fira Sans Condensed', 
+    textAlign:'center',
+    backgroundColor: 'black',
+    color:'#FFFFF0',
+    fontweight: 400,
+    border: '1px black',
+    borderstyle:'solid',
+    fontSize: 50,
+    padding: 15,
+    borderradius: 20
+   };
 const Registered = () => {
   const navigate=useNavigate()
 
     const classes= useStyles()
     const [registered,setRegistered]=useState([])
+    const [blank,setblank]=useState(false)
     useEffect(() =>{
         fetchRegistered()
     },[])
@@ -115,9 +127,16 @@ const Registered = () => {
             })
           })
           const data = await res.json()
+          if((data.registrations).length===0)
+          {
+            setblank(true)
+          }
           setRegistered(data.registrations)
     }
-
+    if(blank===true)
+    {
+      navigate('/NoReg')
+    }
     if(registered.length===0){
         return(
           <div
@@ -129,24 +148,27 @@ const Registered = () => {
       }
   return (
     <div>
-        <Navbar/>
+        <Template/>
         {<main className={classes.content}>
-        <Typography className={classes.heading} variant="h5">
-           Applications
+        <Typography style={headerstyle} variant="h5">
+           REGISTERED COMPANIES
         </Typography>
+        <br/>
         <Grid container spacing={4}>
           {
             registered?.map(a=>( 
               <Grid item lg={4} md={6} xs={12} key={a.id}>
-                <Card sx={{ minWidth: 275 }}>
-                <CardContent>
-                    <Typography variant="h5" component="div">
+               <Card style={{color:'black'}}sx={{ minWidth: 275 }}>
+                <CardContent style={{backgroundColor:'turquoise'}}>
+                    <Typography variant="h4" component="div">
                     {a.role}
                     </Typography>
-                    <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                    <br/>
+                    <Typography variant="h5" sx={{ mb: 2.5 }} color="text.secondary">
                     {a.companyName}
                     </Typography>
-                    <Typography variant="body2">
+                    <br/>
+                    <Typography variant="h6">
                     {a.description}
                     </Typography>
                 </CardContent>

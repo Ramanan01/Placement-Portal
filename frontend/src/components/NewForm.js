@@ -19,6 +19,7 @@ import Checkbox from '@material-ui/core/Checkbox'
 import { MenuItem } from '@material-ui/core';
 import { Select } from '@material-ui/core';
 import Navbarorg from './Navbarorg';
+import OrgTemplate from './OrgTemplate'
 
 const useStyles = makeStyles((theme)=>({
     cardContent:{
@@ -111,7 +112,7 @@ const NewForm = () => {
     const classes=useStyles()
   return (
     <div>
-      <Navbarorg></Navbarorg>
+      <OrgTemplate/>
         <h1>NewForm</h1>
         <FormControl className={classes.formElement}>
             <CssTextField 

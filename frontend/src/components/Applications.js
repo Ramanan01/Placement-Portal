@@ -12,7 +12,7 @@ import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import {useNavigate,Link} from 'react-router-dom'
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import Navbar from './Navbar';
+import Template from './Template';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 
@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
   },
   joinButton:{
-    backgroundColor:'#cc7722',
+    backgroundColor:'black',
     color:"white",
     margin: theme.spacing(2),
     "&:hover": {
@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   joinButtonInverse:{
-    backgroundColor:'#b7410e',
+    backgroundColor:'black',
     color:"white",
     margin: theme.spacing(2),
     "&:hover": {
@@ -86,6 +86,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const headerstyle={
+  fontFamily: 'Fira Sans Condensed', 
+  textAlign:'center',
+  backgroundColor: 'black',
+  color:'#FFFFF0',
+  fontweight: 400,
+  border: '1px black',
+  borderstyle:'solid',
+  fontSize: 50,
+  padding: 15,
+  borderradius: 20
+ };
 const Applications = () => {
     const classes = useStyles();
     const navigate = useNavigate()
@@ -93,7 +105,7 @@ const Applications = () => {
     
     const [applications,setApplications]=useState([])
     const [userApplications,setUserApplications]=useState([])
-
+    const [blank,setblank]=useState(false)
     useEffect(() => {
       const user = JSON.parse(localStorage.getItem("user"))
       if(!user){
@@ -138,6 +150,10 @@ const Applications = () => {
                 finApplications=[...finApplications, a]
             }
         })
+        if((finApplications).length===0)
+          {
+            setblank(true)
+          }
         setApplications(finApplications)
     }
 
@@ -156,8 +172,11 @@ const Applications = () => {
           })
         })
       }
-
-
+    
+      if(blank===true)
+    {
+      navigate('/NoApp')
+    }
     if(applications.length===0){
         return(
           <div
@@ -169,24 +188,27 @@ const Applications = () => {
       }
   return (
     <div>
-        <Navbar/>    
-      {<main className={classes.content}>
-        <Typography className={classes.heading} variant="h5">
-           Applications
+           <Template/>
+    {<main className={classes.content}>
+        <Typography style={headerstyle} variant="h5">
+           APPLICATIONS
         </Typography>
+        <br/>
         <Grid container spacing={4}>
           {
             applications?.map(a=>( 
               <Grid item lg={4} md={6} xs={12} key={a.id}>
-                <Card sx={{ minWidth: 275 }}>
-                <CardContent>
-                    <Typography variant="h5" component="div">
+                <Card style={{color:'black'}}sx={{ minWidth: 275 }}>
+                <CardContent style={{backgroundColor:'turquoise'}}>
+                    <Typography variant="h4" component="div">
                     {a.role}
                     </Typography>
-                    <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                    <br/>
+                    <Typography variant="h5" sx={{ mb: 2.5 }} color="text.secondary">
                     {a.companyName}
                     </Typography>
-                    <Typography variant="body2">
+                    <br/>
+                    <Typography variant="h6">
                     {a.description}
                     </Typography>
                 </CardContent>

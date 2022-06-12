@@ -16,11 +16,10 @@ import {useNavigate} from 'react-router-dom'
 // import MenuIcon from '@material-ui/icons/Menu';
 
 const bgUrl = {
-  background: `url(https://images.unsplash.com/photo-1432821596592-e2c18b78144f?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YmxvZyUyMGJhY2tncm91bmR8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80)`,
+  background:`url(https://i.pinimg.com/736x/35/1a/e7/351ae7b78bb793c6462884e947df51b2.jpg)`,
   height: "100vh",
-  backgroundPosition: "center",
-  backgroundRepeat: "no-repeat",
-  backgroundSize: "cover",
+  backgroundSize: 'cover',
+  backgroundRepeat: 'no-repeat'
   // opacity: 0.8,
 };
 
@@ -33,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     height: "80%",
   },
   toolbar: {
-    backgroundColor: "#35281E",
+    backgroundColor: "black",
   },
   linkRouter:{
     textDecoration: 'none',
@@ -65,9 +64,9 @@ const useStyles = makeStyles((theme) => ({
   },
   formButton: {
     margin: "15px",
-    backgroundColor: "#cc7722",
+    backgroundColor: "black",
     "&:hover": {
-      backgroundColor: "#b7410e",
+      backgroundColor: "#20B2AA",
     },
   },
   bullet: {
@@ -80,6 +79,7 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
+    fontFamily: 'Fira Sans Condensed'
   },
   buttons: {
     display: "flex",
@@ -89,6 +89,7 @@ const useStyles = makeStyles((theme) => ({
   heading:{
     fontSize:'2rem',
     fontWeight:'bold',
+    fontFamily: 'Fira Sans Condensed'
   },
   inputStyles: {
     color:'black',
@@ -130,7 +131,7 @@ function Organization() {
 
   const loginData = (e) => {
     e.preventDefault()
-    console.log('About to send credntials')
+    console.log('About to send credentials')
     fetch("/orglogin",{
       method:"post",
       headers:{
@@ -153,6 +154,7 @@ function Organization() {
           console.log(data.company)
           localStorage.setItem("jwt",data.token)
           localStorage.setItem("company",JSON.stringify(data.company))
+          localStorage.setItem("org",data.company.companyName)
           navigate('/orgdashboard')
       }
     })
@@ -163,7 +165,7 @@ function Organization() {
         <AppBar position="static">
           <Toolbar className={classes.toolbar}>
             <Typography variant="h4" className={classes.title}>
-              PP
+              AU PLACEMENTS-ORGANISATION
             </Typography>
           </Toolbar>
         </AppBar>

@@ -18,6 +18,8 @@ import {useNavigate} from 'react-router-dom'
 const bgUrl = {
   background: `url(https://i.pinimg.com/736x/35/1a/e7/351ae7b78bb793c6462884e947df51b2.jpg)`,
   height: "100vh",
+  backgroundSize: 'cover',
+  backgroundRepeat: 'no-repeat'
  
 };
 
@@ -41,6 +43,7 @@ const useStyles = makeStyles((theme) => ({
       "&:hover": {
         backgroundColor: "#20B2AA",
       },
+      fontFamily: 'Fira Sans Condensed'
   },
   card: {
     width: "25%",
