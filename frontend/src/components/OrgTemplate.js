@@ -49,6 +49,9 @@ const useStyles = makeStyles((theme) => ({
     partNav: {
       display: "flex",
       alignItems: "center",
+    },
+    navfont: {
+      fontFamily: 'Fira Sans Condensed'
     }
 }))
 const bgUrl = {
@@ -91,18 +94,18 @@ export default function Navbarorg() {
                   </Typography>
                 </Link>
               </div>
-              <NavLink exact to="/" activeClassName={classes.activeNav} className={classes.navItems}>
-                <Typography variant="h6" noWrap>
+              <NavLink exact to="/orgdashboard" activeClassName={classes.activeNav} className={classes.navItems}>
+                <Typography variant="h6" noWrap className={classes.navfont}>
                   Home
                 </Typography>
               </NavLink>
               <NavLink exact to="/orgforms" activeClassName={classes.activeNav} className={classes.navItems}>
-                <Typography variant="h6" noWrap>
+                <Typography variant="h6" noWrap className={classes.navfont}>
                   Forms
                 </Typography>
               </NavLink>
               <NavLink exact to="/registerform" activeClassName={classes.activeNav} className={classes.navItems}>
-                <Typography variant="h6" noWrap>
+                <Typography variant="h6" noWrap className={classes.navfont}>
                   Create Form
                 </Typography>
               </NavLink>
@@ -117,7 +120,7 @@ export default function Navbarorg() {
                  onClick={logout}
               >
                 <ExitToAppIcon />
-                <Typography variant="body1" noWrap>
+                <Typography variant="body1" noWrap className={classes.navfont}>
                   Logout
                 </Typography>
               </Button>

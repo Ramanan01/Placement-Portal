@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
     paddingTop:theme.spacing(10),
     paddingBottom: theme.spacing(7),
-    backgroundColor: '#FFC0CB',
+    backgroundColor: '#F9E4B7',
     minHeight:'100vh'
   },
   cardContent:{
@@ -144,7 +144,7 @@ const Orgforms = () => {
         
       {<main className={classes.content}>
         <div>
-      <b style={headerstyle}>MY FORMS</b></div>
+      <b style={headerstyle}>My Forms</b></div>
         <br/>
         <br/>
         <Grid container spacing={4}>
@@ -152,18 +152,18 @@ const Orgforms = () => {
             forms?.map(a=>( 
               <Grid item lg={4} md={6} xs={12} key={a.id}>
                 <Card style={{color:'black'}} sx={{ minWidth: 275 }}>
-                <CardContent style={{backgroundColor:'turquoise'}}>
+                <CardContent style={{backgroundColor:'#FF7F50'}}>
                 <Link to ={`/orgforms/${a._id.toString()}`} style={{ textDecoration: 'none', color: 'black'}}>
                     
-                    <Typography variant="h4" component="div">
+                    <Typography variant="h4" component="div" style={{fontFamily: 'Fira Sans Condensed'}}>
                     {a.role}
                     </Typography>
                     </Link>
 
-                    <Typography sx={{ mb: 2.5 }} color="text.secondary">
+                    <Typography sx={{ mb: 2.5 }} color="text.secondary" style={{fontFamily: 'Fira Sans Condensed'}}>
                     {a.companyName}
                     </Typography>
-                    <Typography variant="h6">
+                    <Typography variant="h6" style={{fontFamily: 'Fira Sans Condensed'}}>
                     {a.description}
                     </Typography>
                 </CardContent>

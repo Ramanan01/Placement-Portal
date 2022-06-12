@@ -24,11 +24,8 @@ const useStyles = makeStyles((theme) => ({
     navItems: {
       textDecoration: "none",
       margin: theme.spacing(1.5),
-      border:'solid',
-      borderRadius:15,
       padding:5,
-      backgroundColor: "white",
-      color: "black",
+      color: "#FFFFF0",
       fontFamily:'Fira Sans Condensed'
     },
     title:{
@@ -39,7 +36,8 @@ const useStyles = makeStyles((theme) => ({
     },
     activeNav:{
       textDecoration: "none",
-      color: '#cc7722',
+      color: '#FFFFF0',
+      fontFamily:'Fira Sans Condensed',
       margin: theme.spacing(1.5), 
 
     },
@@ -50,6 +48,9 @@ const useStyles = makeStyles((theme) => ({
     partNav: {
       display: "flex",
       alignItems: "center",
+    },
+    navfont:{
+      fontFamily: 'Fira Sans Condensed'
     }
 }))
 const bgUrl = {
@@ -92,24 +93,24 @@ export default function Template() {
                   </Typography>
                 </Link>
               </div>
-              <NavLink exact to="/" activeClassName={classes.activeNav} className={classes.navItems}>
-                <Typography variant="h6" noWrap>
+              <NavLink exact to="/sdashboard"  className={classes.navItems}>
+                <Typography variant="h6" noWrap className={classes.navfont} >
                   Home
                 </Typography>
               </NavLink>
-              <NavLink exact to="/applications" activeClassName={classes.activeNav} className={classes.navItems}>
-                <Typography variant="h6" noWrap>
+              <NavLink exact to="/applications" className={classes.navItems}>
+                <Typography variant="h6" noWrap className={classes.navfont}>
                   Applications
                 </Typography>
               
               </NavLink>
-              <NavLink exact to="/registered" activeClassName={classes.activeNav} className={classes.navItems}>
-                <Typography variant="h6" noWrap>
+              <NavLink exact to="/registered" className={classes.navItems}>
+                <Typography variant="h6" noWrap className={classes.navfont}>
                   Registered
                 </Typography>
               </NavLink>
-              <NavLink exact to="/profile" activeClassName={classes.activeNav} className={classes.navItems}>
-                <Typography variant="h6" noWrap>
+              <NavLink exact to="/profile" className={classes.navItems}>
+                <Typography variant="h6" noWrap className={classes.navfont}>
                   Profile
                 </Typography>
               </NavLink>
@@ -124,7 +125,7 @@ export default function Template() {
                 onClick={logout}
               >
                 <ExitToAppIcon />
-                <Typography variant="body2" noWrap>
+                <Typography variant="body2" noWrap className={classes.navfont}>
                   Logout
                 </Typography>
               </Button>

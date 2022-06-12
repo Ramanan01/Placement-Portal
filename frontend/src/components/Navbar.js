@@ -39,7 +39,8 @@ const useStyles = makeStyles((theme) => ({
     },
     activeNav:{
       textDecoration: "none",
-      color: '#cc7722',
+      color: '#FFFFF0',
+      fontFamily:'Fira Sans Condensed',
       margin: theme.spacing(1.5), 
 
     },
@@ -50,6 +51,9 @@ const useStyles = makeStyles((theme) => ({
     partNav: {
       display: "flex",
       alignItems: "center",
+    },
+    navfont: {
+      fontFamily: 'Fira Sans Condensed'
     }
 }))
 const bgUrl = {
@@ -94,24 +98,24 @@ export default function Navbar() {
                   </Typography>
                 </Link>
               </div>
-              <NavLink exact to="/" activeClassName={classes.activeNav} className={classes.navItems}>
-                <Typography variant="h6" noWrap>
+              <NavLink exact to="/sdashboard"  className={classes.navItems}>
+                <Typography variant="h6" noWrap className={classes.navfont}>
                   Home
                 </Typography>
               </NavLink>
               <NavLink exact to="/applications" activeClassName={classes.activeNav} className={classes.navItems}>
-                <Typography variant="h6" noWrap>
+                <Typography variant="h6" noWrap className={classes.navfont}>
                   Applications
                 </Typography>
               
               </NavLink>
               <NavLink exact to="/registered" activeClassName={classes.activeNav} className={classes.navItems}>
-                <Typography variant="h6" noWrap>
+                <Typography variant="h6" noWrap className={classes.navfont}>
                   Registered
                 </Typography>
               </NavLink>
               <NavLink exact to="/profile" activeClassName={classes.activeNav} className={classes.navItems}>
-                <Typography variant="h6" noWrap>
+                <Typography variant="h6" noWrap className={classes.navfont}>
                   Profile
                 </Typography>
               </NavLink>
@@ -126,7 +130,7 @@ export default function Navbar() {
                 onClick={logout}
               >
                 <ExitToAppIcon />
-                <Typography variant="body2" noWrap>
+                <Typography variant="body2" noWrap className={classes.navfont}>
                   Logout
                 </Typography>
               </Button>

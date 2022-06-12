@@ -191,7 +191,7 @@ const Applications = () => {
            <Template/>
     {<main className={classes.content}>
         <Typography style={headerstyle} variant="h5">
-           APPLICATIONS
+           Applications
         </Typography>
         <br/>
         <Grid container spacing={4}>
@@ -199,16 +199,16 @@ const Applications = () => {
             applications?.map(a=>( 
               <Grid item lg={4} md={6} xs={12} key={a.id}>
                 <Card style={{color:'black'}}sx={{ minWidth: 275 }}>
-                <CardContent style={{backgroundColor:'turquoise'}}>
-                    <Typography variant="h4" component="div">
+                <CardContent style={{backgroundColor:'#FF7F50'}}>
+                    <Typography variant="h4" component="div" style={{fontFamily: 'Fira Sans Condensed'}}>
                     {a.role}
                     </Typography>
                     <br/>
-                    <Typography variant="h5" sx={{ mb: 2.5 }} color="text.secondary">
+                    <Typography variant="h5" sx={{ mb: 2.5 }} style={{fontFamily: 'Fira Sans Condensed'}}>
                     {a.companyName}
                     </Typography>
                     <br/>
-                    <Typography variant="h6">
+                    <Typography variant="h6" style={{fontFamily: 'Fira Sans Condensed'}}>
                     {a.description}
                     </Typography>
                 </CardContent>

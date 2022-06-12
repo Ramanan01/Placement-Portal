@@ -60,24 +60,24 @@ const FormDetails = ({match}) => {
         )
       }
   return (
-    <div>
+    <div style={{backgroundColor: '#F9E4B7', fontFamily: 'Fira Sans Condensed',height:'100vh'}}>
         <OrgTemplate></OrgTemplate>
         <br/>
         <br/>
         <br/>
         <br/>
 
-        <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+        <TableContainer component={Paper} style={{backgroundColor:'#FF7F50'}}>
+        <Table sx={{ minWidth: 650 }} aria-label="simple table" >
             <TableHead>
             <TableRow>
-                <TableCell>Name </TableCell>
-                <TableCell align="right">Email</TableCell>
-                <TableCell align="right">Phone No&nbsp;(g)</TableCell>
-                <TableCell align="right">Department&nbsp;(g)</TableCell>
-                <TableCell align="right">10th&nbsp;(g)</TableCell>
-                <TableCell align="right">12th&nbsp;(g)</TableCell>
-                <TableCell align="right">CGPA&nbsp;(g)</TableCell>
+                <TableCell style={{fontFamily: 'Fira Sans Condensed',fontSize: '20px'}}><b>Name</b></TableCell>
+                <TableCell style={{fontFamily: 'Fira Sans Condensed',fontSize: '20px'}} align="right"><b>Email</b></TableCell>
+                <TableCell style={{fontFamily: 'Fira Sans Condensed',fontSize: '20px'}} align="right"><b>Phone No</b>&nbsp;</TableCell>
+                <TableCell style={{fontFamily: 'Fira Sans Condensed',fontSize: '20px'}} align="right"><b>Department</b>&nbsp;</TableCell>
+                <TableCell style={{fontFamily: 'Fira Sans Condensed',fontSize: '20px'}} align="right"><b>10th</b>&nbsp;</TableCell>
+                <TableCell style={{fontFamily: 'Fira Sans Condensed',fontSize: '20px'}} align="right"><b>12th</b>&nbsp;</TableCell>
+                <TableCell style={{fontFamily: 'Fira Sans Condensed',fontSize: '20px'}} align="right"><b>CGPA</b>&nbsp;</TableCell>
             </TableRow>
             </TableHead>
             <TableBody>
@@ -86,15 +86,15 @@ const FormDetails = ({match}) => {
                 key={row.rollno}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                 >
-                <TableCell component="th" scope="row">
+                <TableCell component="th" scope="row" style={{fontFamily: 'Fira Sans Condensed'}}>
                     {row.fullname}
                 </TableCell>
-                <TableCell align="right">{row.email}</TableCell>
-                <TableCell align="right">{row.phone}</TableCell>
-                <TableCell align="right">{row.dept}</TableCell>
-                <TableCell align="right">{row.tenth}</TableCell>
-                <TableCell align="right">{row.twelfth}</TableCell>
-                <TableCell align="right">{row.CGPA}</TableCell>
+                <TableCell align="right" style={{fontFamily: 'Fira Sans Condensed',fontSize: '15px'}}>{row.email}</TableCell>
+                <TableCell align="right" style={{fontFamily: 'Fira Sans Condensed',fontSize: '15px'}}>{row.phone}</TableCell>
+                <TableCell align="right" style={{fontFamily: 'Fira Sans Condensed',fontSize: '15px'}}>{row.dept}</TableCell>
+                <TableCell align="right" style={{fontFamily: 'Fira Sans Condensed',fontSize: '15px'}}>{row.tenth}</TableCell>
+                <TableCell align="right" style={{fontFamily: 'Fira Sans Condensed',fontSize: '15px'}}>{row.twelfth}</TableCell>
+                <TableCell align="right" style={{fontFamily: 'Fira Sans Condensed',fontSize: '15px'}}>{row.CGPA}</TableCell>
                 </TableRow>
             ))}
             </TableBody>
