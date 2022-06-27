@@ -24,11 +24,9 @@ const useStyles = makeStyles((theme) => ({
     navItems: {
       textDecoration: "none",
       margin: theme.spacing(1.5),
-      border:'solid',
-      borderRadius:15,
       padding:5,
-      backgroundColor: "Turquoise",
-      color: "black",
+      backgroundColor: "black",
+      color: "white",
       fontFamily:'Fira Sans Condensed'
     },
     title:{
@@ -58,7 +56,7 @@ const bgUrl = {
     backgroundAttachment: 'local',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',*/
-    backgroundColor:"Turquoise"
+    backgroundColor:"turquoise"
   };
 const headerstyle={
     fontFamily: 'Fira Sans Condensed', 

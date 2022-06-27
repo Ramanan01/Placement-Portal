@@ -158,9 +158,9 @@ export default function Navbarorg() {
             <Grid item lg={6} xs={6}>
             <div style={{boxShadow:20,borderRadius:10,fontFamily: 'Fira Sans Condensed', border: '1px solid black',marginLeft:'200px',marginRight:'200px',backgroundColor:'#FFFFF0',width:'500px',color:'black'}}>
               <h3 style={{backgroundColor:'black',color:'white'}}>Aptitude Tests and Interview Sessions</h3>
-              <h4 style={{color:'red',textAlign:'left'}}><marquee>Aptitude I for CSE students-27/07/2022</marquee></h4>
-                   <h4 style={{color:'red',textAlign:'left'}}><marquee>Technical Interview batch II-28/07/2022</marquee></h4>
-                   <h4 style={{color:'red',textAlign:'left'}}><marquee>SHORTLISTED CANDIDATES LIST OUT!</marquee></h4>
+              <h4 style={{color:'red'}}><marquee>Aptitude I for CSE students-27/07/2022</marquee></h4>
+                   <h4 style={{color:'red'}}><marquee>Technical Interview batch II-28/07/2022</marquee></h4>
+                   <h4 style={{color:'red'}}><marquee>SHORTLISTED CANDIDATES LIST OUT!</marquee></h4>
              </div>
             </Grid>
             </Grid>
